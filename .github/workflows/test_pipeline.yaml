@@ -8,7 +8,6 @@ env:
   APP_NAME: dumbapp-sample
   FOLDER_NAME: '.'
   PYTHON_VERSION: '3.9'
-  TF_ACTIONS_WORKING_DIR: terraform
   
 
 jobs: 
@@ -34,7 +33,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2.0.3
 
       - name: Terraform run
-        working-directory: ${{ env.tf_actions_working_dir }}
+        working-directory: './terraform'
         run: |
           terraform init
           terraform plan
