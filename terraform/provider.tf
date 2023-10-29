@@ -6,8 +6,4 @@ terraform {
     storage_account_name="tfstateaccounttudelft"
     container_name="tfstatecontainer"
     key="sandbox/dumbapp.tfstate"
-
-
-
-
-  }
+}
