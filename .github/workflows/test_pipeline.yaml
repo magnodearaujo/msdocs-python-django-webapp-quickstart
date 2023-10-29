@@ -5,8 +5,8 @@ on: [push]
 # Colocar Validacoes
 
 env:
-  APP_NAME: test_name
-  FOLDER_NAME: 'dumbapp-sampl_group'
+  APP_NAME: dumbapp_sample
+  FOLDER_NAME: '.'
   PYTHON_VERSION: '3.9'
   
 
@@ -29,9 +29,9 @@ jobs:
           python -m venv .venv
           source .venv/bin/activate
           pip install -r requirements.txt
-      - name:
-        run: |
-          az webapp up --runtime PYTHON:${{env.PYTHON_VERSION}} --sku ${{vars.SKU_TYPE}} --logs --location ${{vars.REGION}} --name ${{env.FOLDER_NAME}}
+#      - name:
+#        run: |
+#          az webapp up --runtime PYTHON:${{env.PYTHON_VERSION}} --sku ${{vars.SKU_TYPE}} --logs --location ${{vars.REGION}} --name ${{env.FOLDER_NAME}}
           
 #          --resource-group ${{vars.RESOURCE_GROUP}}
         
@@ -41,5 +41,5 @@ jobs:
           app-name: ${{env.APP_NAME}}
           package: ${{env.FOLDER_NAME}}
           startup-command: 'python manage.py runserver'
-          
+          resource-group-name: ${{vars.RESOURCE_GROUP}}
       
