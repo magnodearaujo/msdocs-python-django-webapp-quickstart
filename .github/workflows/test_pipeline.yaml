@@ -8,8 +8,8 @@ env:
   APP_NAME: dumbapp-sample
   FOLDER_NAME: '.'
   PYTHON_VERSION: '3.9'
+  ARM_ACCESS_KEY: ${{secrets.ARM_ACCESS_KEY}}
   
-
 jobs: 
   teste:
     runs-on: ubuntu-latest
