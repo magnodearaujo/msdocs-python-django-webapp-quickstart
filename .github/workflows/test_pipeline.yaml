@@ -5,7 +5,7 @@ on: [push]
 # Colocar Validacoes
 
 env:
-  APP_NAME: dumbapp_sample
+  APP_NAME: dumbapp-sample
   FOLDER_NAME: '.'
   PYTHON_VERSION: '3.9'
   
