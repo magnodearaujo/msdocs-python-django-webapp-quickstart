@@ -2,11 +2,11 @@ name: test_pipeline
 on: [push]
 
 # Bloqueia o main de receber commits diretos e força PR
-# Job / Steps
+# Colocar Validacoes
 
 env:
   APP_NAME: test_name
-  FOLDER_NAME: 'asdfasdfasdfasdf-asdfasdf-asdfadsf'
+  FOLDER_NAME: 'dumbapp-sampl_group'
   PYTHON_VERSION: '3.9'
   
 
