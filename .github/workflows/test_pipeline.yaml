@@ -1,0 +1,48 @@
+name: test_pipeline
+on: [push]
+
+# Bloqueia o main de receber commits diretos e força PR
+# Job / Steps
+
+env:
+  APP_NAME: test_name
+  FOLDER_NAME: directory_name
+  PYTHON_VERSION: '3.9'
+  
+
+jobs: 
+  teste:
+    runs-on: ubuntu-latest
+    steps:
+      - name: repo checkout
+        uses: actions/checkout@v4
+      - name: python setup
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{env.PYTHON_VERSION}}
+      - name: azure login
+        uses: azure/login@v1
+        with: 
+          creds: '${{secrets.azure_credentials}}'
+      - name: pip install
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install -r requirements.txt
+      - name:
+        run: |
+          az webapp up --runtime PYTHON:${{env.PYTHON_VERSION}} --sku ${{vars.SKU_TYPE}} --logs --location ${{vars.REGION}} --name ${{FOLDER_NAME}} --dry-run
+          
+#          --resource-group ${{vars.RESOURCE_GROUP}}
+
+
+  SKU_TYPE: sku_selector
+        
+      - name: deploy webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{env.APP_NAME}}
+          package: ${{env.FOLDER_NAME}}
+          startup-command: 'python manage.py runserver'
+          
+      
