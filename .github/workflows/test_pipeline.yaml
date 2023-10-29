@@ -6,7 +6,7 @@ on: [push]
 
 env:
   APP_NAME: test_name
-  FOLDER_NAME: '.'
+  FOLDER_NAME: 'asdfasdfasdfasdf-asdfasdf-asdfadsf'
   PYTHON_VERSION: '3.9'
   
 
