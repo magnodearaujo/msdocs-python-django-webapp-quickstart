@@ -31,7 +31,7 @@ jobs:
           pip install -r requirements.txt
       - name:
         run: |
-          az webapp up --runtime PYTHON:${{env.PYTHON_VERSION}} --sku ${{vars.SKU_TYPE}} --logs --location ${{vars.REGION}} --name ${{FOLDER_NAME}} --dry-run
+          az webapp up --runtime PYTHON:${{env.PYTHON_VERSION}} --sku ${{vars.SKU_TYPE}} --logs --location ${{vars.REGION}} --name ${{env.FOLDER_NAME}} --dry-run
           
 #          --resource-group ${{vars.RESOURCE_GROUP}}
         
