@@ -2,12 +2,13 @@ name: test_pipeline
 on: [push]
 
 # Bloqueia o main de receber commits diretos e força PR
-# Colocar Validacoes
+# Colocar Validacoes no BASH -> Terraform
 
 env:
   APP_NAME: dumbapp-sample
   FOLDER_NAME: '.'
   PYTHON_VERSION: '3.9'
+  TF_ACTIONS_WORKING_DIR: terraform
   
 
 jobs: 
@@ -31,6 +32,13 @@ jobs:
           pip install -r requirements.txt
       - name: HashiCorp - Setup Terraform      
         uses: hashicorp/setup-terraform@v2.0.3
+
+      - name: Terraform run
+        working-directory: ${{ env.tf_actions_working_dir }}
+        run: |
+          terraform init
+          terraform plan
+          terraform apply
         
 #  with:
 #    # The hostname of a Terraform Cloud/Enterprise instance to place within the credentials block of the Terraform CLI configuration file. Defaults to `app.terraform.io`.
