@@ -3,9 +3,10 @@ variable "REGION" {
   description = "Azure region"
 
   validation {
-    condition     = contains(["item1", "item2", "item3"], var.test_variable)
-    error_message = "Valid values for var: test_variable are (item1, item2, item3)."
-  } 
+    condition     = contains([["northeurope", "swedencentral", "uksouth", "westeurope", "francecentral", "germanywestcentral", "italynorth", "norwayeast", "polandcentral", "switzerlandnorth", "europe", "france", "germany", "switzerland", "uk", "francesouth", "germanynorth", "norwaywest", "switzerlandwest", "ukwest"], var.test_variable)
+    error_message = "Valid values for var: REGION are northeurope, swedencentral, uksouth, westeurope, francecentral, germanywestcentral, italynorth, norwayeast, polandcentral, switzerlandnorth, europe, france, germany, switzerland, uk, francesouth, germanynorth, norwaywest, switzerlandwest, ukwest."
+  }
+}
 
 variable "PYTHON_VERSION" {
   type        = string
@@ -15,6 +16,7 @@ variable "PYTHON_VERSION" {
     condition     = contains(["3.8", "3.9", "3.10", "3.11"], var.PYTHON_VERSION)
     error_message = "Valid values for your Python version are 3.8, 3.9, 3.10 and 3.11."
   } 
+}
 
 variable "SKU_TYPE" {
   type        = string
@@ -67,16 +69,16 @@ The available virtual machine options are:
     I6v2 - 16 cores, 128 GB of RAM, 1 TB of storage
 
 EOT
-  } 
-
-
-variable "APP_NAME" {
-    type = string
-    default = "foo"
-
-    validation {
-    # regex(...) fails if it cannot find a match
-    condition     = can(regex("^[0-9A-Za-z]+$", var.application_name))
-    error_message = "For the application_name value only a-z, A-Z and 0-9 are allowed."
   }
 }
+
+#variable "APP_NAME" {
+#    type = string
+#    default = "foo"
+
+#    validation {
+    # regex(...) fails if it cannot find a match
+#    condition     = can(regex("^[0-9A-Za-z]+$", var.APP_NAME))
+#    error_message = "For the application_name value only a-z, A-Z and 0-9 are allowed."
+#  }
+#}
