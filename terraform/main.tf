@@ -79,6 +79,12 @@ EOT
 #    validation {
     # regex(...) fails if it cannot find a match
 #    condition     = can(regex("^[0-9A-Za-z]+$", var.APP_NAME))
-#    error_message = "For the application_name value only a-z, A-Z and 0-9 are allowed."
+#    error_message = <<EOT
+
+#Invalid name.
+
+#Keep in mind that app names only allow alphanumeric characters and hyphens, cannot start or end in a hyphen, and must be from 2 to 64 chars.
+#Please, choose another name.
+
 #  }
 #}
