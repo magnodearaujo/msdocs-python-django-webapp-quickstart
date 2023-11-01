@@ -84,5 +84,7 @@ Invalid name.
 Keep in mind that app names only allow alphanumeric characters and hyphens, cannot start or end in a hyphen, and must be from 2 to 64 chars.
 Please, choose another name.
 
+EOT
+
   }
 }
