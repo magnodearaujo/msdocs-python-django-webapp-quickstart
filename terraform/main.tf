@@ -72,19 +72,17 @@ EOT
   }
 }
 
-#variable "APP_NAME" {
-#    type = string
-#    default = "foo"
+variable "APP_NAME" {
+  type = string
 
-#    validation {
-    # regex(...) fails if it cannot find a match
-#    condition     = can(regex("^[0-9A-Za-z]+$", var.APP_NAME))
-#    error_message = <<EOT
+  validation {
+  condition     = length(var.APP_NAME) < 2 || length(var.APP_NAME) > 64 || can(regex("^[a-zA-Z0-9\-]", var.APP_NAME)) || can(regex("\-*", var.APP_NAME))
+  error_message = <<EOT
 
-#Invalid name.
+Invalid name.
 
-#Keep in mind that app names only allow alphanumeric characters and hyphens, cannot start or end in a hyphen, and must be from 2 to 64 chars.
-#Please, choose another name.
+Keep in mind that app names only allow alphanumeric characters and hyphens, cannot start or end in a hyphen, and must be from 2 to 64 chars.
+Please, choose another name.
 
-#  }
-#}
+  }
+}
