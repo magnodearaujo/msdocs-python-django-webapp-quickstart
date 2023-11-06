@@ -23,7 +23,7 @@ variable "SKU_TYPE" {
   description = "Virtual machine SKU"
 
   validation {
-    condition     = contains(["F1", "D1", "B1", "B2", "B3", "S1", "S2", "S4", "P1v2", "P2v2", "P3v2", "P0v3", "P1v3", "P1mv3", "P2v3", "P2mv3", "P3v3", "P3mv3", "P4mv3", "P5mv3", "I1", "I2", "I3", "I1v2", "I1mv2", "I2mv2", "I3v2", "I3mv2", "I4v2", "I4mv2", "I5v2", "I5mv2", "I6v2"], var.test_variable)
+    condition     = contains(["F1", "D1", "B1", "B2", "B3", "S1", "S2", "S4", "P1v2", "P2v2", "P3v2", "P0v3", "P1v3", "P1mv3", "P2v3", "P2mv3", "P3v3", "P3mv3", "P4mv3", "P5mv3", "I1", "I2", "I3", "I1v2", "I1mv2", "I2mv2", "I3v2", "I3mv2", "I4v2", "I4mv2", "I5v2", "I5mv2", "I6v2"], var.SKU_TYPE)
     error_message = <<EOT
 
 The available virtual machine options are:
