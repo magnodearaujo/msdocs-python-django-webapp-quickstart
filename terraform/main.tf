@@ -76,7 +76,7 @@ variable "APP_NAME" {
   type = string
 
   validation {
-  condition     = length(var.APP_NAME) < 2 || length(var.APP_NAME) > 64 || can(regex("[^a-zA-Z0-9\-]", var.APP_NAME)) || can(regex("\-*", var.APP_NAME))
+  condition     = length(var.APP_NAME) < 2 || length(var.APP_NAME) > 64 || can(regex("[^a-zA-Z0-9\-]", var.APP_NAME)) || can(regex("-*", var.APP_NAME))
   error_message = <<EOT
 
 Invalid name.
