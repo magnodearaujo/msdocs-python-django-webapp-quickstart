@@ -46,20 +46,20 @@ jobs:
         run: |
           terraform plan -lock=false    
         env:
-          - TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
-            TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
-            TF_VAR_REGION: ${{env.REGION}}
-            PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+          TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+          TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
+          TF_VAR_REGION: ${{env.REGION}}
+          PYTHON_VERSION: ${{env.PYTHON_VERSION}}
 
       - name: Terraform Apply
         working-directory: './terraform'
         run: |
           terraform apply
         env:
-          - TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
-            TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
-            TF_VAR_REGION: ${{env.REGION}}
-            PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+          TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+          TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
+          TF_VAR_REGION: ${{env.REGION}}
+          PYTHON_VERSION: ${{env.PYTHON_VERSION}}
 
       - name: deploy webapp
         uses: azure/webapps-deploy@v2
