@@ -5,12 +5,15 @@ on: [push]
 # Colocar Validacoes no BASH -> Terraform
 
 env:
-  TF_VAR_APP_NAME: ${{env.APP_NAME}}
-  TF_VAR_FOLDER_NAME: '.'
-  TF_VAR_ARM_ACCESS_KEY: ${{secrets.ARM_ACCESS_KEY}}
-  TF_VAR_SKU_TYPE: ${{env.SKU_TYPE}}
-  TF_VAR_REGION: ${{env.REGION}}
-  TF_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+
+  FOLDER_NAME: '.'
+  # Secrets:
+  ARM_ACCESS_KEY: ${{secrets.ARM_ACCESS_KEY}}
+  # Terraform:
+  APP_NAME: 'dumbapp-sample'
+  SKU_TYPE: 'F1'
+  REGION: 'westeurope'
+  PYTHON_VERSION: '3.9'
   
 jobs: 
   teste:
@@ -39,6 +42,11 @@ jobs:
         run: |
           terraform init
           terraform plan
+          env:
+          - TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+            TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
+            TF_VAR_REGION: ${{env.REGION}}
+            PYTHON_VERSION: ${{env.PYTHON_VERSION}}
           terraform apply
         
       - name: deploy webapp
