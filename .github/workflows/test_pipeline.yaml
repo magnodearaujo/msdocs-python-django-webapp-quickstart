@@ -5,10 +5,9 @@ on: [push]
 # Colocar Validacoes no BASH -> Terraform
 
 env:
-  APP_NAME: dumbapp-sample
-  FOLDER_NAME: '.'
-  PYTHON_VERSION: '3.9'
-  ARM_ACCESS_KEY: ${{secrets.ARM_ACCESS_KEY}}
+  TF_VAR_APP_NAME: dumbapp-sample
+  TF_VAR_FOLDER_NAME: '.'
+  TF_VAR_ARM_ACCESS_KEY: ${{secrets.ARM_ACCESS_KEY}}
   
 jobs: 
   teste:
