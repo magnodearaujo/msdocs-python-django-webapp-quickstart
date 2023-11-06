@@ -3,7 +3,7 @@ variable "REGION" {
   description = "Azure region"
 
   validation {
-    condition     = contains(["northeurope", "swedencentral", "uksouth", "westeurope", "francecentral", "germanywestcentral", "italynorth", "norwayeast", "polandcentral", "switzerlandnorth", "europe", "france", "germany", "switzerland", "uk", "francesouth", "germanynorth", "norwaywest", "switzerlandwest", "ukwest"], var.test_variable)
+    condition     = contains(["northeurope", "swedencentral", "uksouth", "westeurope", "francecentral", "germanywestcentral", "italynorth", "norwayeast", "polandcentral", "switzerlandnorth", "europe", "france", "germany", "switzerland", "uk", "francesouth", "germanynorth", "norwaywest", "switzerlandwest", "ukwest"], var.REGION)
     error_message = "Valid values for var: REGION are northeurope, swedencentral, uksouth, westeurope, francecentral, germanywestcentral, italynorth, norwayeast, polandcentral, switzerlandnorth, europe, france, germany, switzerland, uk, francesouth, germanynorth, norwaywest, switzerlandwest, ukwest."
   }
 }
