@@ -17,7 +17,7 @@ env:
   
 jobs: 
   teste:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: repo checkout
         uses: actions/checkout@v4
@@ -37,18 +37,30 @@ jobs:
       - name: HashiCorp - Setup Terraform      
         uses: hashicorp/setup-terraform@v2.0.3
 
-      - name: Terraform run
-        working-directory: './terraform'
+      - name: Terraform Init
         run: |
           terraform init
-          terraform plan -lock=false
-          env:
+
+      - name: Terraform Plan
+        working-directory: './terraform'
+        run: |
+          terraform plan -lock=false    
+        env:
           - TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
             TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
             TF_VAR_REGION: ${{env.REGION}}
             PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+
+      - name: Terraform Apply
+        working-directory: './terraform'
+        run: |
           terraform apply
-        
+        env:
+          - TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+            TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
+            TF_VAR_REGION: ${{env.REGION}}
+            PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+
       - name: deploy webapp
         uses: azure/webapps-deploy@v2
         with:
