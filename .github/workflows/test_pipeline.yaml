@@ -48,7 +48,7 @@ jobs:
           terraform plan -lock=false    
         env:
           TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
-          TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
+          TF_VAR_SKU_TYPE: ${{env.SKU_TYPE}}
           TF_VAR_REGION: ${{env.REGION}}
           PYTHON_VERSION: ${{env.PYTHON_VERSION}}
           TF_VAR_APP_NAME: 'dumbapp-sample'
@@ -59,7 +59,7 @@ jobs:
           terraform apply
         env:
           TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
-          TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
+          TF_VAR_SKU_TYPE: ${{env.SKU_TYPE}}
           TF_VAR_REGION: ${{env.REGION}}
           PYTHON_VERSION: ${{env.PYTHON_VERSION}}
           TF_VAR_APP_NAME: 'dumbapp-sample'
