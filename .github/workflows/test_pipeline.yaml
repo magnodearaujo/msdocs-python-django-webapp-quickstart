@@ -51,6 +51,7 @@ jobs:
           TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
           TF_VAR_REGION: ${{env.REGION}}
           PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+          TF_VAR_APP_NAME: 'dumbapp-sample'
 
       - name: Terraform Apply
         working-directory: './terraform'
@@ -61,6 +62,7 @@ jobs:
           TF_VAR_SKU_NAME: ${{env.SKU_NAME}}
           TF_VAR_REGION: ${{env.REGION}}
           PYTHON_VERSION: ${{env.PYTHON_VERSION}}
+          TF_VAR_APP_NAME: 'dumbapp-sample'
 
       - name: deploy webapp
         uses: azure/webapps-deploy@v2
