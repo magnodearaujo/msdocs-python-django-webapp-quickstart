@@ -45,7 +45,7 @@ jobs:
       - name: Terraform Plan
         working-directory: './terraform'
         run: |
-          terraform plan -lock=false    
+          terraform plan    
         env:
           TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
           TF_VAR_SKU_TYPE: ${{env.SKU_TYPE}}
