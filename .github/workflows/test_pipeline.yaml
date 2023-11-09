@@ -9,10 +9,6 @@ env:
   FOLDER_NAME: '.'
   RESOURCE_GROUP: "dumbapp-sampl_group"
   ARM_ACCESS_KEY: ${{secrets.ARM_ACCESS_KEY}}
-#  APP_NAME: 'dumbapp-sample'
-#  SKU_TYPE: 'F1'
-#  REGION: 'westeurope'
-#  PYTHON_VERSION: '3.9'
   
 jobs: 
   teste:
