@@ -55,7 +55,7 @@ jobs:
       - name: Terraform Apply
         working-directory: './terraform'
         run: |
-          terraform apply
+          terraform apply -auto-approve
         env:
           TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
           TF_VAR_SKU_TYPE: ${{env.SKU_TYPE}}
