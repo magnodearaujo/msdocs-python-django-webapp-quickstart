@@ -9,6 +9,10 @@ env:
   FOLDER_NAME: '.'
   RESOURCE_GROUP: "dumbapp-sampl_group"
   ARM_ACCESS_KEY: ${{secrets.ARM_ACCESS_KEY}}
+  TF_VAR_PYTHON_VERSION: ${{vars.PYTHON_VERSION}}
+  TF_VAR_SKU_TYPE: ${{vars.SKU_TYPE}}
+  TF_VAR_REGION: ${{vars.REGION}}
+  TF_VAR_APP_NAME: ${{vars.APP_NAME}}
   
 jobs: 
   teste:
@@ -39,20 +43,20 @@ jobs:
         working-directory: './terraform'
         run: |
           terraform plan    
-        env:
-          TF_VAR_PYTHON_VERSION: ${{vars.PYTHON_VERSION}}
-          TF_VAR_SKU_TYPE: ${{vars.SKU_TYPE}}
-          TF_VAR_REGION: ${{vars.REGION}}
-          TF_VAR_APP_NAME: ${{vars.APP_NAME}}
+#        env:
+#          TF_VAR_PYTHON_VERSION: ${{vars.PYTHON_VERSION}}
+#          TF_VAR_SKU_TYPE: ${{vars.SKU_TYPE}}
+#          TF_VAR_REGION: ${{vars.REGION}}
+#          TF_VAR_APP_NAME: ${{vars.APP_NAME}}
       - name: Terraform Apply
         working-directory: './terraform'
         run: |
           terraform apply -auto-approve
-        env:
-          TF_VAR_PYTHON_VERSION: ${{vars.PYTHON_VERSION}}
-          TF_VAR_SKU_TYPE: ${{vars.SKU_TYPE}}
-          TF_VAR_REGION: ${{vars.REGION}}
-          TF_VAR_APP_NAME: ${{vars.APP_NAME}}
+#        env:
+#          TF_VAR_PYTHON_VERSION: ${{vars.PYTHON_VERSION}}
+#          TF_VAR_SKU_TYPE: ${{vars.SKU_TYPE}}
+#          TF_VAR_REGION: ${{vars.REGION}}
+#          TF_VAR_APP_NAME: ${{vars.APP_NAME}}
       - name: deploy webapp
         uses: azure/webapps-deploy@v2
         with:
