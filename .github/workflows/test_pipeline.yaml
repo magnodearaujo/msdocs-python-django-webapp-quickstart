@@ -43,20 +43,10 @@ jobs:
         working-directory: './terraform'
         run: |
           terraform plan    
-#        env:
-#          TF_VAR_PYTHON_VERSION: ${{vars.PYTHON_VERSION}}
-#          TF_VAR_SKU_TYPE: ${{vars.SKU_TYPE}}
-#          TF_VAR_REGION: ${{vars.REGION}}
-#          TF_VAR_APP_NAME: ${{vars.APP_NAME}}
       - name: Terraform Apply
         working-directory: './terraform'
         run: |
           terraform apply -auto-approve
-#        env:
-#          TF_VAR_PYTHON_VERSION: ${{vars.PYTHON_VERSION}}
-#          TF_VAR_SKU_TYPE: ${{vars.SKU_TYPE}}
-#          TF_VAR_REGION: ${{vars.REGION}}
-#          TF_VAR_APP_NAME: ${{vars.APP_NAME}}
       - name: deploy webapp
         uses: azure/webapps-deploy@v2
         with:
