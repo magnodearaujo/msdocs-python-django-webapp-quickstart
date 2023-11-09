@@ -50,7 +50,6 @@ jobs:
           TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
           TF_VAR_SKU_TYPE: ${{env.SKU_TYPE}}
           TF_VAR_REGION: ${{env.REGION}}
-          PYTHON_VERSION: ${{env.PYTHON_VERSION}}
           TF_VAR_APP_NAME: 'dumbapp-sample'
 
       - name: Terraform Apply
@@ -61,7 +60,6 @@ jobs:
           TF_VAR_PYTHON_VERSION: ${{env.PYTHON_VERSION}}
           TF_VAR_SKU_TYPE: ${{env.SKU_TYPE}}
           TF_VAR_REGION: ${{env.REGION}}
-          PYTHON_VERSION: ${{env.PYTHON_VERSION}}
           TF_VAR_APP_NAME: 'dumbapp-sample'
 
       - name: deploy webapp
