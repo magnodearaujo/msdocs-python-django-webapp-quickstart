@@ -2,7 +2,7 @@ name: test_pipeline
 on: [push]
 
 # Bloqueia o main de receber commits diretos e força PR
-# Colocar Validacoes no BASH -> Terraform
+# Modularizar para usar apenas includes nas pipelines
 
 env:
 
